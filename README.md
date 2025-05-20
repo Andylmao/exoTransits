@@ -1,8 +1,8 @@
 #  🔭🪐✨ ExoTransits Explorer: Interactive Exoplanet Transit Simulator
 
-[Open in Streamlit](https://blank-app-template.streamlit.app/)
-[Python](https://img.shields.io/badge/Python-3.8%252B-blue)
-[License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://tuaplicacion.streamlit.app/)
+![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/licenses/MIT)
 
 An interactive educational app for simulating exoplanet transits and orbital dynamics using astrophysical models. Perfect for astronomy educators, students, and space enthusiasts!
 
