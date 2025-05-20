@@ -1,10 +1,10 @@
 import streamlit as st
 import pandas as pd
-#import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 import numpy as np
 import matplotlib as plt
-#import matplotlib.animation as animation
-#from matplotlib.patches import Circle
+import matplotlib.animation as animation
+from matplotlib.patches import Circle
 
 def area_interseccion_circulos(x1, y1, r1, x2, y2, z1, r2):
     d = np.sqrt((x2 - x1)**2 + (y2 - y1)**2)
@@ -24,10 +24,12 @@ def area_interseccion_circulos(x1, y1, r1, x2, y2, z1, r2):
         return term1 + term2 - term3
 
 def main():
+ 
+
     st.title("Simulación de Tránsito de Exoplaneta")
     
     # Cargar datos
-    df = pd.read_csv("https://github.com/Mastevegm/exoplanet.py/blob/master/exoplaa.csv")
+    df = pd.read_csv("https://raw.githubusercontent.com/Mastevegm/exoplanet.py/refs/heads/master/exoplaa.csv")
     
     # Parámetros de la simulación
     st.sidebar.header("Parámetros de la Simulación")
