@@ -1,9 +1,10 @@
 import streamlit as st
 import pandas as pd
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 import numpy as np
-import matplotlib.animation as animation
-from matplotlib.patches import Circle
+import matplotlib as plt
+#import matplotlib.animation as animation
+#from matplotlib.patches import Circle
 
 def area_interseccion_circulos(x1, y1, r1, x2, y2, z1, r2):
     d = np.sqrt((x2 - x1)**2 + (y2 - y1)**2)
