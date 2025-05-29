@@ -77,42 +77,25 @@ def main():
         axs[1].scatter((df_cut['Tiempo'] - x_min) / (x_max - x_min) * Pasos, 
                       brightness_scaled, label=f'({x_min}, {x_max})', color='green')
     axs[1].legend()
+   
+
     
-    def init():
-        circle.set_center((-1 * Orbita, 0))
-        time_text.set_text('')
-        line.set_data([], [])
-        moving_circle.center = (0, 100)
-        return circle, circle_central, time_text, line, moving_circle
-    
-    def animate(frame):
+    brillo = []
+
+    for frame in range(Pasos):
         x = np.cos(0.5*np.pi + 2 * np.pi * frame / Pasos) * Orbita
         y = np.sin(0.5*np.pi + 2 * np.pi * frame / Pasos) * Orbita * np.cos(Inclinacion)
         z = np.sin(0.5*np.pi + 2 * np.pi * frame / Pasos) * Orbita
-        circle.set_center((x, y))
+
         if z > 0:
-            circle.set_zorder(0)
-            circle_central.set_zorder(1)
-            area_diferencia = 100
+            brillo.append(100)  # No hay tránsito
         else:
-            circle.set_zorder(1)
-            circle_central.set_zorder(0)
-            area_diferencia = 100 * (1 - (area_interseccion_circulos(0, 0, Radio_star, x, y, z, Radio_planet)) / (np.pi * Radio_star**2))
-        time_text.set_text('Brillo: {:.2f}%'.format(area_diferencia))
-        area_dif_values.append(area_diferencia)
-        frames = list(range(len(area_dif_values)))
-        line.set_data(frames, area_dif_values)
-        if len(area_dif_values) > 0:
-            moving_circle.center = (frame, area_dif_values[-1])
-        else:
-            moving_circle.center = (frame, 100)
-        return circle, circle_central, time_text, line, moving_circle
-    
-    # Crear animación
-    anim = animation.FuncAnimation(fig, animate, frames=Pasos, interval=1, 
-                                 init_func=init, blit=False, repeat=True)
-    
-    # Mostrar en Streamlit
+            inter = area_interseccion_circulos(0, 0, Radio_star, x, y, z, Radio_planet)
+            brillo.append(100 * (1 - inter / (np.pi * Radio_star**2)))
+
+    # Agrega la curva simulada a la segunda subgráfica
+    axs[1].plot(range(Pasos), brillo, 'r-', label='Simulación')
+    axs[1].legend()
     st.pyplot(fig)
     st.write("Animación del tránsito del exoplaneta")
     
