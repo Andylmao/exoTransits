@@ -22,7 +22,7 @@ def area_interseccion_circulos(x1, y1, r1, x2, y2, z1, r2):
 
 def main():
     st.title("🌑 Simulación de Tránsito de Exoplaneta en Tiempo Real")
-    st.sidebar.header("Parámetros de la Simulación")
+    st.sidebar.header("Parámetros de Simulación")
     # Parámetros
     Radio_star = 10
     Rpf = st.sidebar.slider("Radio del planeta / Radio estrella", 0.01, 0.4, 0.1, 0.01)
@@ -34,7 +34,7 @@ def main():
     Angulo_inclinacion = st.sidebar.slider("Inclinación (grados)", -90, 90, 0, 1)
     Inclinacion = np.radians(90 + Angulo_inclinacion)
 
-    Pasos = 100
+    Pasos = 150
     Caja = 1.5 * Orbita
 
     placeholder = st.empty()
