@@ -34,7 +34,7 @@ def main():
     Angulo_inclinacion = st.sidebar.slider("Inclinación (grados)", -90, 90, 0, 1)
     Inclinacion = np.radians(90 + Angulo_inclinacion)
 
-    Pasos = 200
+    Pasos = 100
     Caja = 1.5 * Orbita
 
     placeholder = st.empty()
